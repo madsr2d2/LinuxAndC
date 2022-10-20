@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int main(void) {
+int main(void) { 
 
 	srand(time(0));
 	int guess;
 	int guess_counter = 0;
 	int select_var;
-	int random_number;
+	int random_number;				
 
 	// Welcome message
 	puts("**********");
@@ -16,11 +16,32 @@ int main(void) {
 	puts("**********");
 	puts("");
 
-	printf("1: GuessANumber\n2: GuessANumberReverse\nPlease select option: ");
+	printf("1: SizeOfInt\n2: GuessANumber\n3: GuessANumberReverse\nPlease select option: ");
 	scanf("%d", &select_var);
 
-	// GuessAnumber
+	// SizeOfInt
+
 	if (select_var == 1) {
+		int counter = 0;
+    	int n_new = 0;
+    	int n_old = 1;
+		while (1) {
+			n_new = 2 * n_old;
+			counter++;
+        	if (n_new == n_old) {
+				counter--;
+				break;
+        	}
+		n_old = n_new;
+		}
+	
+		printf("Number of bits in int: %d\n", counter);
+	}
+
+
+
+	// GuessAnumber
+	if (select_var == 2) {
 
 		
 		random_number = rand()%100 + 1;
@@ -50,7 +71,7 @@ int main(void) {
 	}
 
 	// GuessANumberReverse
-	if (select_var == 2) {
+	if (select_var == 3) {
 		int HIGH = 100;
 		int LOW = 0;
 		puts("");
