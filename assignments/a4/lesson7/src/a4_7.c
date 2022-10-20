@@ -1,3 +1,11 @@
+/*
+Mandatory assignment: 4
+Lesson: 7
+Student name: Mads Richardt
+Student Id: s224948
+Date: 20/10/2022
+*/
+
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -8,7 +16,7 @@ int main(void) {
 	int guess;
 	int guess_counter = 0;
 	int select_var;
-	int random_number;				
+	int random_number;					
 
 	// Welcome message
 	puts("**********");
@@ -16,12 +24,18 @@ int main(void) {
 	puts("**********");
 	puts("");
 
+	// Select exercise
 	printf("1: SizeOfInt\n2: GuessANumber\n3: GuessANumberReverse\nPlease select option: ");
 	scanf("%d", &select_var);
 
 	// SizeOfInt
-
 	if (select_var == 1) {
+		
+		puts("");
+		puts("************");
+		puts("SizeOfInt");
+		puts("************");
+		
 		int counter = 0;
     	int n_new = 0;
     	int n_old = 1;
@@ -37,8 +51,6 @@ int main(void) {
 	
 		printf("Number of bits in int: %d\n", counter);
 	}
-
-
 
 	// GuessAnumber
 	if (select_var == 2) {
@@ -93,7 +105,7 @@ int main(void) {
 			//printf("High: %d\n",HIGH);
 			//puts("");
 			if (random_number == guess) {
- 				printf("I guessed your number on guess %d", guess_counter);
+ 				printf("I guessed your number on guess %d\n", guess_counter);
 				break;
 			}
 			if (guess > random_number) {
