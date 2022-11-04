@@ -1,3 +1,11 @@
+/*
+Mandatory assignment: 5
+Lesson: 9 + 10
+Student Name: Mads Richardt
+Student Id: s224948
+Date: 04/11/2022
+*/
+
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -5,41 +13,66 @@
 
 // Function declarations
 void Diceman();
-void StackTrace();
+void f1();
+unsigned long Factorial(int n);
 
-int main() {
+int main() 
+{
 	puts("***********************");
 	puts("Welcome to Assignment 5");
 	puts("***********************");
 
 	int selectionVariable = 0;
 
-	while (selectionVariable != 4) {
-	
+	while (selectionVariable != 4)
+	{
+		// Prompt user for selection.
 		printf("\n1: Diceman.\n2: Stack Trace.\n3: Factorial.\n4: Close Program.\nPlease choose option: ");
 		scanf("%1d",&selectionVariable);
 
 		switch (selectionVariable)
 		{
-		case 1:
-			puts("");
-			puts("*******");
-			puts("Diceman");
-			puts("*******");
+			case 1:
+				puts("");
+				puts("*******");
+				puts("Diceman");
+				puts("*******");
 
-			printf("Rolling dice... ");
-			Diceman();
-			break;
+				printf("Rolling dice... ");
+				// Call Diceman().
+				Diceman();
+				break;
 
-		case 2:
-			puts("");
-			puts("*******");
-			puts("Stack Trace");
-			puts("*******");
-			StackTrace();
+			case 2:
+				puts("");
+				puts("***********");
+				puts("Stack Trace");
+				puts("***********");
 
-		default:
-			break;
+				// Call f1().
+				f1();
+				break;
+
+			case 3:
+				puts("");
+				puts("***********");
+				puts("Factorial");
+				puts("***********");
+
+				// Prompt user for integer. 
+				int k;
+				printf("Enter a positive integer: ");
+				scanf("%d", &k);
+
+				// Call Factorial().
+				unsigned long fk = Factorial(k);
+
+				// Print result.
+				printf("The value of %u factorial is %lu\n",k, fk);
+				break;
+
+			default:
+				break;
 		}
 
 	}
@@ -47,7 +80,9 @@ int main() {
 	puts("\nClosing Program...");
 }
 
-void Diceman() {
+// Function definition.
+void Diceman()
+{
 	char action [100];
 
 	// Role dice
@@ -58,33 +93,64 @@ void Diceman() {
 	{
 	case 1:
 		strcpy(action,"Breakfast!");
-		printf("%s\n", action);
+		printf("%d! %s\n",dice, action);
 		break;
 	case 2:
 		strcpy(action, "Study!");
-		printf("%s\n", action);
+		printf("%d! %s\n",dice, action);
 		break;
 	case 3:
 		strcpy(action, "Swim!");
-		printf("%s\n", action);
+		printf("%d! %s\n",dice, action);
 		break;
 	case 4:
 		strcpy(action, "Go fishing!");
-		printf("%s\n", action);
+		printf("%d! %s\n",dice, action);
 		break;
 	case 5:
 		strcpy(action, "Call mom!");
-		printf("%s\n", action);
+		printf("%d! %s\n",dice, action);
 		break;
 	case 6:
 		strcpy(action, "Back to bed!");
-		printf("%s\n", action);
+		printf("%d! %s\n",dice, action);
 		break;
 	default:
 		break;
 	}
 }
 
-void StackTrace() {
-	
+void f1() 
+{
+	void f2() 
+	{
+		void f3()
+		{
+			void f4()
+			{
+				void f5()
+				{
+					puts("f5() called");
+				}
+				puts("f4() called");
+				f5();
+			}
+			puts("f3() called");
+			f4();
+		}
+		puts("f2() called");
+		f3();
+	}
+	puts("f1() called");
+	f2();
+}
+
+unsigned long Factorial(int n)
+{
+	unsigned long f = 1;
+	for (int i = 1; i <= n; i++)
+	{
+		f = f*i;
+	}
+	return f;
 }
