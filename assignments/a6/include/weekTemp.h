@@ -1,9 +1,15 @@
+/*
+Course name: Linux and C Programming (62558)
+Student name: Mads Richardt
+Student Id: s224849
+Date: 17-11-2022
+*/
+
 #ifndef WEEKTEMP
 #define WEEKTEMP
 
 #include <algorithm>
 #include <cmath>
-#include  <stdio.h>
 using namespace std;
 
 // WeekTemp class
@@ -16,10 +22,7 @@ class WeekTemp {
         // Constructor.
         WeekTemp()
         {
-            int demoWeek[] = {18, 16, 14, 13, 14, 17, 17};
-            copy(begin(demoWeek), end(demoWeek), weekTemps);
-            copy(begin(demoWeek), end(demoWeek), sortedWeekTemps);
-            sort(sortedWeekTemps, sortedWeekTemps + 7);
+
         }
         
         // Load week function.
