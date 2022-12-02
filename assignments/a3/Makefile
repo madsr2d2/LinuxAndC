@@ -13,21 +13,14 @@ SRC		:= src
 # define include directory
 INCLUDE	:= include
 
-ifeq ($(OS),Windows_NT)
-MAIN	:= main.exe
-SOURCEDIRS	:= $(SRC)
-INCLUDEDIRS	:= $(INCLUDE)
-FIXPATH = $(subst /,\,$1)
-RM			:= del /q /f
-MD	:= mkdir
-else
+
 MAIN	:= hnp_a6
 SOURCEDIRS	:= $(shell find $(SRC) -type d)
 INCLUDEDIRS	:= $(shell find $(INCLUDE) -type d)
 FIXPATH = $1
 RM = rm -f
+
 MD	:= mkdir -p
-endif
 
 # define any directories containing header files other than /usr/include
 INCLUDES	:= $(patsubst %,-I%, $(INCLUDEDIRS:%/=%))
