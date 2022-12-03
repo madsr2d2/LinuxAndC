@@ -19,7 +19,9 @@ Correct and the same as before with the while loop.
 7.3
 Good solution and again maybe give your while condition a extra look so you don't use a magic number without a comment.
 
-Missing source code for exercise 8.
+## Annotation Notes on PDF Submission
+1. Shoud have been it own function but this clearly shows that you understand how to swap two variables.
+2. Correct and very good answer.
 
 # Exercise 7
 
