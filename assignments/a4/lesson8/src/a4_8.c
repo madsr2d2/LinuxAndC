@@ -12,16 +12,13 @@ Exercise 8.1
 		D. *p = 75
 */
 
-
-
 #include <stdio.h>
 
 void swap(int *,int *);
 void foo1(int);
 void foo2(int);
 
-int main()
-{
+int main() {
 	int select_var;
 
 	// Select exercise
@@ -29,10 +26,8 @@ int main()
 	scanf("%d", &select_var);
 
 	// Exercise 8.2
-	if (select_var == 1) 	
-	{	
-		puts("");
-		puts("****");
+	if (select_var == 1) {	
+		puts("\n****");
 		puts("Swap");
 		puts("****");
 		int x = 1;
@@ -45,10 +40,8 @@ int main()
 		printf("x = %d, y = %d\n",x,y);
 	}
 
-	if (select_var == 2)
-	{
-		puts("");
-		puts("***************");
+	if (select_var == 2) {
+		puts("\n***************");
 		puts("StackAllocation");
 		puts("***************");
 		foo1(7);
@@ -56,7 +49,6 @@ int main()
 	}
 	return (0);
 }
-
 
 void swap(int *x, int *y) {
 	int temp = *y;
