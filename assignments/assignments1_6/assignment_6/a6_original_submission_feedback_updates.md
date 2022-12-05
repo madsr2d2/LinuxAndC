@@ -10,6 +10,10 @@ boxlinks: true
 ...
 
 # Feedback
+Your header files should not include source code, but only function prototypes, data types and macros.
+And I couldn't get 11.2 to compile with either g++ or gcc. The code looks fine, but it is expected that it is solved using plain c and not cpp.
+
+
 
 # Original Submission
 ```cpp

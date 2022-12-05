@@ -91,7 +91,7 @@ a3.tar.gz                                     100%  204KB 940.2KB/s   00:00
 The Makefile was not included in the original submission - it can be found in the following section.
 
 ## Makefile
-```bash
+```Makefile
 # Define the C compiler to use
 CC := gcc
 
