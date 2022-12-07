@@ -1,0 +1,9 @@
+# Feedback
+9.2
+Fine solution.
+
+9.3
+Fine solution, but be aware that nested function only works with gcc.
+
+10.1
+Good answer.

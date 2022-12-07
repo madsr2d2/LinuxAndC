@@ -36,11 +36,12 @@ int main(void) {
 		puts("\n*********");
 		puts("SizeOfInt");
 		puts("*********");
-		counter = 1;
+		counter = -1;
 
 		while (newInt != oldInt) {
 			oldInt = newInt;
 			newInt = 2*oldInt;
+			counter ++;
 		}
 
 		printf("Number of bits in int: %d\n", counter);

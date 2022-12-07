@@ -1,0 +1,7 @@
+## Annotation on PDF Submission
+1. Fine, and nice that you use the Alice and Bob analogy but normally the actor trying to get unauthorized access is
+called Eve.
+2. Fine
+3. Fine solution consider setting the GID
+4. Maybe also test read and write permissions
+5. Fine answer but what about the "t" in the permissions?
