@@ -31,7 +31,7 @@ FIXPATH = $1
 # Define make dir command
 MD := mkdir -p
 
-# Generate include files
+# Generate includes
 INCLUDES := $(patsubst %,-I%, $(INCLUDEDIRS:%/=%))
 
 # Define the C source files

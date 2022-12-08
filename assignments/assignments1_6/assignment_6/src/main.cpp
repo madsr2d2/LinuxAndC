@@ -21,7 +21,7 @@ int main(void) {
 		puts("**********");
 		printf("1: Exercise 11.1\n2: Exercise 11.2\n3: Close program\nPlease choose option: ");
 		scanf("%1d", &selectVar);
-		getchar();
+		while(getchar() != '\n'){}
 
 		switch (selectVar) {
 			case 1:

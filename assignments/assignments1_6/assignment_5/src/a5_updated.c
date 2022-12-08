@@ -31,6 +31,7 @@ int main() {
 		// Prompt user for selection.
 		printf("\n1: Diceman.\n2: Stack Trace.\n3: Factorial.\n4: Close Program.\nPlease choose option: ");
 		scanf("%1d",&selectionVariable);
+		while(getchar() != '\n'){}
 
 		switch (selectionVariable) {
 			case 1:
@@ -61,6 +62,7 @@ int main() {
 				int k;
 				printf("Enter a positive integer: ");
 				scanf("%d", &k);
+				while (getchar() != '\n'){}
 
 				// Call Factorial().
 				unsigned long fk = Factorial(k);

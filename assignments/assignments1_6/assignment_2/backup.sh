@@ -23,7 +23,7 @@ ARCHIVE_NAME=/tmp/$(basename $DIR).tar.gz
 if [ $VERBOSE -eq 1 ]
 then
 	echo "Creating TAR archive from $DIR and compressing archive to $ARCHIVE_NAME"
-	tar -cvzf $ARCHIVE_NAME $DIR
+	tar -cvzf $ARCHIVE_NAME ../$(basename $DIR)
 	echo "... done!"
 else
 	tar -czf $ARCHIVE_NAME $DIR
