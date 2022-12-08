@@ -8,7 +8,7 @@ Date: 17-11-2022
 #ifndef FACTORIAL
 #define FACTORIAL
 
-// Computes the factorial.
+// Computes the factorial. Return 0 if overflow.
 unsigned long factorial(unsigned long n);
 
 #endif

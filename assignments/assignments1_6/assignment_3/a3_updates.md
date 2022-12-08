@@ -119,6 +119,9 @@ INCLUDEDIRS := $(shell find $(INCLUDE) -type d)
 # Define remove command
 RM := rm -f
 
+# Needed for the clean target
+FIXPATH = $1
+
 # Define make dir command
 MD := mkdir -p
 

@@ -1,91 +1,74 @@
-#
-# 'make'        build executable file 'main'
-# 'make clean'  removes all .o and executable files
-#
+# Define the C compiler to use
+CC := gcc
 
-# define the C compiler to use
-CC = gcc
+# Define compiler flags
+CFLAGS := -Wall -Wextra -g
 
-# define any compile-time flags
-CFLAGS	:= -Wall -Wextra -g
+# Define output directory
+OUTPUT := output
 
-# define library paths in addition to /usr/lib
-#   if I wanted to include libraries not in /usr/lib I'd specify
-#   their path using -Lpath, something like:
-LFLAGS =
+# Define source directory
+SRC := src
 
-# define output directory
-OUTPUT	:= output
+# Define include directory
+INCLUDE := include
+ 
+# Define output file name
+MAIN := main
 
-# define source directory
-SRC		:= src
+# Find source dirs in current directory
+SOURCEDIRS := $(shell find $(SRC) -type d)
 
-# define include directory
-INCLUDE	:= include
+# Find include dirs in current directory
+INCLUDEDIRS := $(shell find $(INCLUDE) -type d)
 
-# define lib directory
-LIB		:= lib
+# Define remove command
+RM := rm -f
 
-ifeq ($(OS),Windows_NT)
-MAIN	:= main.exe
-SOURCEDIRS	:= $(SRC)
-INCLUDEDIRS	:= $(INCLUDE)
-LIBDIRS		:= $(LIB)
-FIXPATH = $(subst /,\,$1)
-RM			:= del /q /f
-MD	:= mkdir
-else
-MAIN	:= main
-SOURCEDIRS	:= $(shell find $(SRC) -type d)
-INCLUDEDIRS	:= $(shell find $(INCLUDE) -type d)
-LIBDIRS		:= $(shell find $(LIB) -type d)
+# Needed for the clean target
 FIXPATH = $1
-RM = rm -f
-MD	:= mkdir -p
-endif
 
-# define any directories containing header files other than /usr/include
-INCLUDES	:= $(patsubst %,-I%, $(INCLUDEDIRS:%/=%))
+# Define make dir command
+MD := mkdir -p
 
-# define the C libs
-LIBS		:= $(patsubst %,-L%, $(LIBDIRS:%/=%))
+# Generate include files
+INCLUDES := $(patsubst %,-I%, $(INCLUDEDIRS:%/=%))
 
-# define the C source files
-SOURCES		:= $(wildcard $(patsubst %,%/*.c, $(SOURCEDIRS)))
+# Define the C source files
+SOURCES := $(wildcard $(patsubst %,%/*.c, $(SOURCEDIRS)))
 
-# define the C object files 
-OBJECTS		:= $(SOURCES:.c=.o)
+# Define the C object files 
+OBJECTS := $(SOURCES:.c=.o)
 
-#
-# The following part of the makefile is generic; it can be used to 
-# build any executable just by changing the definitions above and by
-# deleting dependencies appended to the file from 'make depend'
-#
+# Define main output file 
+OUTPUTMAIN := $(OUTPUT)/$(MAIN)
 
-OUTPUTMAIN	:= $(call FIXPATH,$(OUTPUT)/$(MAIN))
-
+# Make all 
 all: $(OUTPUT) $(MAIN)
 	@echo Executing 'all' complete!
 
+# Make the output dir
 $(OUTPUT):
 	$(MD) $(OUTPUT)
 
+# Make main from object files 
 $(MAIN): $(OBJECTS) 
-	$(CC) $(CFLAGS) $(INCLUDES) -o $(OUTPUTMAIN) $(OBJECTS) $(LFLAGS) $(LIBS)
+	$(CC) $(CFLAGS) $(INCLUDES) -o $(OUTPUTMAIN) $(OBJECTS) $(LFLAGS)
 
-# this is a suffix replacement rule for building .o's from .c's
-# it uses automatic variables $<: the name of the prerequisite of
-# the rule(a .c file) and $@: the name of the target of the rule (a .o file) 
-# (see the gnu make manual section about automatic variables)
-.c.o:
-	$(CC) $(CFLAGS) $(INCLUDES) -c $<  -o $@
+# Rule for making object files.
+%.o : %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
+# Declare "clean" as phony target
 .PHONY: clean
+
+# Clean 
 clean:
 	$(RM) $(OUTPUTMAIN)
 	$(RM) $(call FIXPATH,$(OBJECTS))
 	@echo Cleanup complete!
 
+# Run main
 run: all
 	./$(OUTPUTMAIN)
 	@echo Executing 'run: all' complete!

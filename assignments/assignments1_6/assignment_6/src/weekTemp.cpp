@@ -1,3 +1,4 @@
+
 /*
 Course name: Linux and C Programming (62558)
 Student name: Mads Richardt
@@ -44,6 +45,7 @@ float WeekTemp::SD() {
 }
 
 int *WeekTemp::getWeek() {
+
     int *weekTempsCopy = new int[7];
     std::copy(weekTemps, weekTemps + 7, weekTempsCopy);
     return weekTempsCopy;

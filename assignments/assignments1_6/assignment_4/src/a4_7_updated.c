@@ -84,7 +84,7 @@ int main(void) {
 			guess = LOW + (HIGH - LOW)/2;
 			counter++;
 			printf("Guess %d: %d\n",counter, guess);
-
+	
 			if (guess > random_number) {
 				HIGH = guess;
 			}

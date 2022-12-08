@@ -66,6 +66,10 @@ int main() {
 				unsigned long fk = Factorial(k);
 
 				// Print result.
+				if (fk == 0) {
+					puts("Overflow! Number to large.");
+					break;
+				}
 				printf("The value of %u factorial is %lu\n",k, fk);
 				break;
 
@@ -133,11 +137,16 @@ void f1() {
 	f2();
 }
 
-unsigned long Factorial(int n)
-{
+// Compute factorial. Return 0 if factorial is larger than long.
+unsigned long Factorial(int n) {
 	unsigned long f = 1;
 	for (int i = 1; i <= n; i++) {
-		f = f*i;
+		
+		// Return 0 if overflow.
+		if (f == f*i && i>1) {
+			return 0;
+		}
+		f = f * i;
 	}
 	return f;
 }

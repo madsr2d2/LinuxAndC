@@ -14,11 +14,10 @@ void ex11_1() {
     WeekTemp week;
     int demoWeek[] = {18, 16, 14, 13, 14, 17, 17};
     int newWeek[7];
-
     while (selectVar != 6) {
         printf("1: Load demo week.\n2: Load new week.\n3: Compute mean temperature.\n4: Compute median temperature.\n5: Compute standard deviation.\n6: Exit exercise 11.1.\nPlease choose option: ");
         scanf("%1d", &selectVar);
-        getchar();
+        while(getchar() != '\n') {}
 
         switch (selectVar) {
             case 1:
@@ -27,13 +26,11 @@ void ex11_1() {
                 break;
             case 2:
                 puts("");
-    
                 for (int i = 0; i < 7; i++) {
                     printf("Enter temperature for day %d: ", i + 1);
                     scanf("%d", &newWeek[i]);
-                    getchar();
+                    while (getchar() != '\n') {}
                 }
-    
                 week.loadWeek(newWeek);
                 puts("");
                 break;
